@@ -21,8 +21,8 @@ body {
   min-height: 100vh;
   color: var(--ink);
   background: radial-gradient(circle at 12% 10%, rgba(160, 224, 240, 0.6), transparent 55%),
-    radial-gradient(circle at 88% 6%, rgba(64, 128, 208, 0.25), transparent 52%),
-    linear-gradient(160deg, var(--surface-muted), #f7f9fc 55%, #ffffff 100%);
+    radial-gradient(circle at 88% 6%, rgba(64, 128, 208, 0.35), transparent 52%),
+    linear-gradient(160deg, #c7d0df, #e2e8f3 55%, #f7f9fc 100%);
   font-family: "Avenir Next", "Avenir", "Gill Sans", "Trebuchet MS", sans-serif;
 }
 
@@ -68,17 +68,20 @@ a:hover {
 }
 
 .brand img {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  padding: 6px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  padding: 7px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: var(--shadow);
 }
 
 .brand-name {
   display: block;
-  font-size: 1rem;
+  font-size: 1.22rem;
+  color: var(--ink-strong);
+  font-weight: 700;
+  letter-spacing: 0.8px;
 }
 
 .brand-subtitle {
@@ -114,6 +117,7 @@ a:hover {
 .apps-section {
   display: grid;
   gap: 28px;
+  padding-top: 52px;
 }
 
 .apps-intro {
@@ -138,6 +142,7 @@ h1 {
   letter-spacing: 0.6px;
   line-height: 1.05;
 }
+
 
 .subtitle {
   margin: 0;
@@ -172,10 +177,18 @@ h1 {
   gap: 22px;
 }
 
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .app-card {
   position: relative;
   display: grid;
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
   padding: 22px;
   border-radius: 22px;
   background: var(--surface);
@@ -183,6 +196,16 @@ h1 {
   box-shadow: var(--shadow);
   overflow: hidden;
   animation: rise 0.7s ease both;
+}
+
+.app-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.app-details {
+  display: grid;
+  gap: 14px;
 }
 
 .app-card::after {
@@ -243,6 +266,10 @@ h1 {
   z-index: 1;
 }
 
+.app-card .app-actions {
+  justify-content: flex-end;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -287,14 +314,25 @@ h1 {
 }
 
 .support-callout {
-  margin-top: 42px;
-  padding: 20px 24px;
+  margin-top: 64px;
+  padding: 28px 32px;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   display: grid;
-  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.support-text {
+  display: grid;
+  gap: 8px;
+}
+
+.support-callout .app-actions {
+  justify-content: flex-end;
 }
 
 .footer {
@@ -434,6 +472,24 @@ h1 {
 
   .page {
     padding: 12px 20px 56px;
+  }
+
+  .app-card {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .app-card .app-actions {
+    justify-content: flex-start;
+  }
+
+  .support-callout .app-actions {
+    justify-content: flex-start;
+  }
+
+  .support-callout {
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 }
 

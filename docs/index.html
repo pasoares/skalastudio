@@ -3,384 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Official support and privacy documents for Skala Studio apps, hosted here until the dedicated website launches."
+    />
+    <meta property="og:title" content="Skala Studio Docs" />
+    <meta
+      property="og:description"
+      content="Official support and privacy documents for Skala Studio apps."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="resources/skalastudio.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>Skala Studio Docs</title>
-    <style>
-      :root {
-        --ink: #131a1b;
-        --muted: #4c5155;
-        --accent: #0a6b66;
-        --accent-2: #e27d43;
-        --accent-3: #1f2c3a;
-        --card: rgba(255, 255, 255, 0.9);
-        --card-strong: rgba(255, 255, 255, 0.96);
-        --border: rgba(19, 26, 27, 0.12);
-        --shadow: 0 22px 50px rgba(13, 35, 35, 0.18);
-        --bg-1: #f3e6d7;
-        --bg-2: #d7e6ea;
-        --bg-3: #f9f5f0;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        color: var(--ink);
-        background: radial-gradient(circle at 8% 15%, var(--bg-2), transparent 55%),
-          radial-gradient(circle at 90% 10%, var(--bg-1), transparent 45%),
-          linear-gradient(135deg, var(--bg-3), #ffffff 55%);
-        font-family: "Avenir Next", "Avenir", "Gill Sans", "Trebuchet MS", sans-serif;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-        background-size: 18px 18px;
-        opacity: 0.22;
-      }
-
-      .topbar {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 26px 32px 6px;
-        max-width: 1140px;
-        margin: 0 auto;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-weight: 700;
-        letter-spacing: 0.4px;
-      }
-
-      .brand img {
-        width: 38px;
-        height: 38px;
-        border-radius: 12px;
-        padding: 6px;
-        background: rgba(255, 255, 255, 0.85);
-        box-shadow: var(--shadow);
-      }
-
-      .topnav {
-        display: flex;
-        gap: 16px;
-        font-size: 0.95rem;
-      }
-
-      .topnav a {
-        color: var(--accent-3);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.2s ease, color 0.2s ease;
-      }
-
-      .topnav a:hover {
-        color: var(--accent);
-        border-color: rgba(10, 107, 102, 0.4);
-      }
-
-      .page {
-        position: relative;
-        max-width: 1140px;
-        margin: 0 auto;
-        padding: 22px 32px 72px;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-        align-items: center;
-        gap: 36px;
-        margin-top: 24px;
-      }
-
-      .hero-copy {
-        animation: reveal 0.9s ease both;
-      }
-
-      .eyebrow {
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-size: 0.72rem;
-        color: var(--accent);
-        font-weight: 600;
-      }
-
-      h1 {
-        margin: 10px 0 12px;
-        font-size: clamp(2.6rem, 4.6vw, 3.6rem);
-        font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", serif;
-        letter-spacing: 0.6px;
-        line-height: 1.05;
-      }
-
-      .subtitle {
-        margin: 0;
-        color: var(--muted);
-        font-size: 1.1rem;
-        max-width: 34rem;
-      }
-
-      .cta-row {
-        margin-top: 22px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 12px 20px;
-        border-radius: 999px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      }
-
-      .button.primary {
-        background: var(--accent);
-        color: #ffffff;
-        box-shadow: 0 16px 30px rgba(10, 107, 102, 0.25);
-      }
-
-      .button.ghost {
-        border: 1px solid rgba(10, 107, 102, 0.3);
-        color: var(--accent);
-        background: rgba(255, 255, 255, 0.7);
-      }
-
-      .button:hover {
-        transform: translateY(-1px);
-      }
-
-      .hero-card {
-        background: var(--card-strong);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 24px;
-        box-shadow: var(--shadow);
-        display: grid;
-        gap: 16px;
-        animation: reveal 0.9s ease both;
-        animation-delay: 0.1s;
-      }
-
-      .app-row {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
-
-      .app-row img {
-        width: 64px;
-        height: 64px;
-        border-radius: 18px;
-        padding: 8px;
-        background: rgba(10, 107, 102, 0.08);
-      }
-
-      .app-title {
-        margin: 0;
-        font-size: 1.35rem;
-        color: var(--accent-3);
-      }
-
-      .app-desc {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.98rem;
-      }
-
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .tag {
-        padding: 6px 12px;
-        border-radius: 999px;
-        background: rgba(226, 125, 67, 0.12);
-        color: var(--accent-2);
-        font-size: 0.8rem;
-        font-weight: 600;
-        border: 1px solid rgba(226, 125, 67, 0.25);
-      }
-
-      .quick-links {
-        display: grid;
-        gap: 8px;
-        font-size: 0.95rem;
-      }
-
-      .quick-links a {
-        color: var(--accent-3);
-        text-decoration: none;
-        border-bottom: 1px solid rgba(31, 44, 58, 0.2);
-      }
-
-      .quick-links a:hover {
-        color: var(--accent);
-        border-color: rgba(10, 107, 102, 0.4);
-      }
-
-      .section {
-        margin-top: 56px;
-      }
-
-      .section-header {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 18px;
-        flex-wrap: wrap;
-      }
-
-      .section-header h2 {
-        margin: 0;
-        font-size: 1.8rem;
-        color: var(--accent-3);
-      }
-
-      .section-header p {
-        margin: 8px 0 0;
-        color: var(--muted);
-        max-width: 34rem;
-      }
-
-      .cards {
-        margin-top: 22px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-      }
-
-      .card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 22px;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(6px);
-        animation: rise 0.7s ease both;
-      }
-
-      .card:nth-child(2) {
-        animation-delay: 0.12s;
-      }
-
-      .card h3 {
-        margin: 0 0 8px;
-        font-size: 1.3rem;
-        color: var(--accent);
-      }
-
-      .card h4 {
-        margin: 18px 0 8px;
-        font-size: 1.05rem;
-        color: var(--accent-3);
-      }
-
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.98rem;
-      }
-
-      .link-list {
-        list-style: none;
-        padding: 0;
-        margin: 12px 0 0;
-        display: grid;
-        gap: 8px;
-      }
-
-      .link-list a {
-        color: var(--accent-2);
-        text-decoration: none;
-        border-bottom: 1px solid rgba(226, 125, 67, 0.4);
-        transition: color 0.2s ease, border-color 0.2s ease;
-      }
-
-      .link-list a:hover {
-        color: var(--accent);
-        border-color: rgba(10, 107, 102, 0.5);
-      }
-
-      .footer {
-        margin-top: 44px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(19, 26, 27, 0.12);
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      @keyframes reveal {
-        from {
-          opacity: 0;
-          transform: translateY(18px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes rise {
-        from {
-          opacity: 0;
-          transform: translateY(16px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 900px) {
-        .topbar {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 12px;
-        }
-
-        .hero {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 600px) {
-        .page {
-          padding: 18px 20px 56px;
-        }
-
-        .topbar {
-          padding: 20px 20px 0;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .hero-copy,
-        .hero-card,
-        .card {
-          animation: none;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <header class="topbar">
@@ -423,8 +59,8 @@
             <span class="tag">Calendar</span>
           </div>
           <div class="quick-links">
-            <a href="support/support-en-US.md">Support (English)</a>
-            <a href="privacy/unified-calendar-sync/privacy-en-US.md">Privacy (English)</a>
+            <a href="support/support-en-US.html">Support (English)</a>
+            <a href="privacy/unified-calendar-sync/privacy-en-US.html">Privacy (English)</a>
           </div>
         </aside>
       </section>
@@ -442,10 +78,10 @@
             <p>Localized privacy policy documents.</p>
             <h4>Available languages</h4>
             <ul class="link-list">
-              <li><a href="privacy/unified-calendar-sync/privacy-en-US.md">English (US)</a></li>
-              <li><a href="privacy/unified-calendar-sync/privacy-de-DE.md">German (DE)</a></li>
-              <li><a href="privacy/unified-calendar-sync/privacy-fr-FR.md">French (FR)</a></li>
-              <li><a href="privacy/unified-calendar-sync/privacy-pt-PT.md">Portuguese (PT)</a></li>
+              <li><a href="privacy/unified-calendar-sync/privacy-en-US.html">English (US)</a></li>
+              <li><a href="privacy/unified-calendar-sync/privacy-de-DE.html">German (DE)</a></li>
+              <li><a href="privacy/unified-calendar-sync/privacy-fr-FR.html">French (FR)</a></li>
+              <li><a href="privacy/unified-calendar-sync/privacy-pt-PT.html">Portuguese (PT)</a></li>
             </ul>
           </article>
         </div>
@@ -464,10 +100,10 @@
             <p>Support pages with contact details per locale.</p>
             <h4>Available languages</h4>
             <ul class="link-list">
-              <li><a href="support/support-en-US.md">English (US)</a></li>
-              <li><a href="support/support-de-DE.md">German (DE)</a></li>
-              <li><a href="support/support-fr-FR.md">French (FR)</a></li>
-              <li><a href="support/support-pt-PT.md">Portuguese (PT)</a></li>
+              <li><a href="support/support-en-US.html">English (US)</a></li>
+              <li><a href="support/support-de-DE.html">German (DE)</a></li>
+              <li><a href="support/support-fr-FR.html">French (FR)</a></li>
+              <li><a href="support/support-pt-PT.html">Portuguese (PT)</a></li>
             </ul>
           </article>
         </div>

@@ -272,6 +272,95 @@ h1 {
   font-weight: 600;
 }
 
+.gallery-grid {
+  margin-top: 12px;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+}
+
+.gallery-item {
+  display: block;
+  flex: 0 0 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  box-shadow: var(--shadow);
+  scroll-snap-align: start;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgba(16, 32, 80, 0.78);
+  z-index: 100;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.lightbox-content {
+  position: relative;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  max-width: min(1100px, 94vw);
+  max-height: 86vh;
+  display: grid;
+  gap: 12px;
+}
+
+.lightbox-content img {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lightbox-nav,
+.lightbox-close {
+  font-size: 0.9rem;
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
 .app-overview {
   margin: 0;
   color: var(--muted);
@@ -548,6 +637,18 @@ h1 {
   .support-callout {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+
+  .gallery-grid {
+    gap: 12px;
+  }
+
+  .lightbox {
+    padding: 16px;
+  }
+
+  .lightbox-content {
+    padding: 10px;
   }
 }
 
